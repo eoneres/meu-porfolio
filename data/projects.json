@@ -1,0 +1,47 @@
+[
+  {
+    "slug": "pipeline-cotacoes",
+    "title": "Pipeline de Cotações Cambiais",
+    "shortDescription": "Plataforma full-stack que automatiza coleta, armazenamento e previsão de moedas",
+    "fullDescription": "O Pipeline de Cotações é uma plataforma full-stack que automatiza a coleta, armazenamento, análise e previsão de cotações de moedas. O sistema utiliza técnicas de Machine Learning (Regressão Linear e Prophet) para gerar previsões precisas, além de análise de sentimento de notícias para auxiliar na tomada de decisão.",
+    "technologies": ["Node.js", "Tailwind", "Prisma", "PostgreSQL", "Redis Cache", "Socket.io", "JWT", "React", "Vite", "Recharts", "Prophet (Facebook)", "Docker & Docker Compose"],
+    "media": [
+      { "type": "image", "src": "/images/cotacoes/1775179971396.jpg" },
+      { "type": "image", "src": "/images/cotacoes/1775179971584.jpg" },
+      { "type": "image", "src": "/images/cotacoes/1775179971768.jpg" },
+      { "type": "image", "src": "/images/cotacoes/1775179971801.jpg" }
+    ],
+    "github": "https://github.com/eoneres/pipeline-cotacoes",
+    "liveDemo": "https://exemplo.com"
+  },
+  {
+    "slug": "cartola-analytics",
+    "title": "Cartola Analytics",
+    "shortDescription": "Plataforma de análise preditiva para o Cartola FC",
+    "fullDescription": "O Sistema Inteligente para o Cartola FC é uma plataforma completa que combina coleta de dados via API oficial, Machine Learning e Processamento de Linguagem Natural para maximizar a pontuação dos usuários no Cartola FC.",
+    "technologies": ["Python", "Streamlit", "FastAPI", "XGBoost"],
+    "media": [
+      { "type": "image", "src": "/images/cartola/1777121806536.jpg" },
+      { "type": "image", "src": "/images/cartola/1777121806595.jpg" },
+      { "type": "image", "src": "/images/cartola/1777121806665.jpg" },
+      { "type": "image", "src": "/images/cartola/1777121808160.jpg" },
+      { "type": "image", "src": "/images/cartola/1777121808233.jpg" },
+      { "type": "image", "src": "/images/cartola/1777121808307.jpg" },
+      { "type": "image", "src": "/images/cartola/1777121808326.jpg" },
+      { "type": "image", "src": "/images/cartola/1777121808373.jpg" },
+      { "type": "image", "src": "/images/cartola/1777121808374.jpg" }
+    ],
+    "github": "https://github.com/eoneres/Cartola-Analytics"
+  },
+  {
+    "slug": "erp-mechanics",
+    "title": "Sistema ERP para Oficinas",
+    "shortDescription": "Sistema web completo para gestão de oficinas mecânicas",
+    "fullDescription": "Sistema web completo para gestão utilizando como base oficinas mecânicas, desenvolvido com foco em usabilidade, eficiência operacional e controle financeiro. A plataforma centraliza todas as atividades do negócio em um único ambiente, eliminando planilhas e cadernos, e proporcionando uma visão clara e em tempo real do desempenho do negócio.",
+    "technologies": ["Node.js", "React", "Prisma", "PostgreSQL"],
+    "media": [
+      { "type": "video", "src": "/videos/erp/1773774335429.mp4" }
+    ],
+    "github": "https://github.com/eoneres/ERP"
+  }
+]
