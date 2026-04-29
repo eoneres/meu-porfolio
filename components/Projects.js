@@ -7,8 +7,6 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState(projectsData[0]);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [pendingProject, setPendingProject] = useState(null);
-  
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const [startX, setStartX] = useState(0);
   const [dragOffset, setDragOffset] = useState(0);
@@ -18,7 +16,6 @@ export default function Projects() {
   
   const media = selectedProject.media || [];
   const totalItems = media.length;
-  
   const [clonedMedia, setClonedMedia] = useState([]);
   const [clonedIndex, setClonedIndex] = useState(1);
 
@@ -89,9 +86,7 @@ export default function Projects() {
     pauseAutoplay();
     setIsDragging(true);
     setStartX(e.clientX);
-    if (trackRef.current) {
-      trackRef.current.style.transition = 'none';
-    }
+    if (trackRef.current) trackRef.current.style.transition = 'none';
   };
 
   const handleMouseMove = (e) => {
@@ -104,16 +99,13 @@ export default function Projects() {
     }
   };
 
-  const handleMouseUp = (e) => {
+  const handleMouseUp = () => {
     if (!isDragging) return;
     setIsDragging(false);
     const threshold = 50;
     if (Math.abs(dragOffset) > threshold) {
-      if (dragOffset > 0) {
-        prev();
-      } else {
-        next();
-      }
+      if (dragOffset > 0) prev();
+      else next();
     } else {
       jumpToIndex(clonedIndex, true);
     }
@@ -123,21 +115,27 @@ export default function Projects() {
 
   const renderMediaItem = (item, idx) => {
     if (item.type === 'video') {
+      // Vídeo sem controles, autoplay mudo, recarrega com key
       return (
         <video
+          key={item.src}
           src={item.src}
-          controls
-          className="w-full h-full object-contain bg-black/5"
-          poster={item.poster || ''}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="w-full h-full object-cover"
         />
       );
     }
+    // Imagem com object-cover para preencher todo o container
     return (
       <Image
         src={item.src}
         alt={`${selectedProject.title} - ${idx}`}
         fill
-        className="object-contain hover:scale-105 transition-transform duration-500"
+        className="object-cover hover:scale-105 transition-transform duration-500"
       />
     );
   };
@@ -192,7 +190,7 @@ export default function Projects() {
         </div>
 
         <div className={`transition-all duration-300 ease-in-out transform ${isTransitioning ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0'}`}>
-          <div className="relative bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden group" onMouseEnter={pauseAutoplay} onMouseLeave={resumeAutoplay}>
+          <div className="relative bg-black rounded-2xl shadow-xl overflow-hidden group" onMouseEnter={pauseAutoplay} onMouseLeave={resumeAutoplay}>
             <div className="relative w-full h-96 md:h-[500px] overflow-hidden cursor-grab active:cursor-grabbing" onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}>
               <div ref={trackRef} className="flex h-full">
                 {clonedMedia.map((item, idx) => (
