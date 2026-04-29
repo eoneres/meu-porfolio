@@ -28,15 +28,15 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm border-b border-gray-200 dark:border-gray-800">
+    <nav className="sticky top-0 z-50 bg-primary backdrop-blur-sm border-b border-theme">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <Link href="/" className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
           Filipe Neres Fernandes - Softwares Portfolio
         </Link>
         <div className="flex gap-6 items-center">
-          <Link href="#projects" className="hover:text-blue-600 transition">Projetos</Link>
-          <Link href="#contact" className="hover:text-blue-600 transition">Contato</Link>
-          <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700">
+          <Link href="#projects" className="hover:accent-text transition">Projetos</Link>
+          <Link href="#contact" className="hover:accent-text transition">Contato</Link>
+          <button onClick={toggleTheme} className="p-2 rounded-full hover:bg-secondary transition">
             {isDark ? '☀️' : '🌙'}
           </button>
         </div>

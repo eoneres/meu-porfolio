@@ -1,9 +1,9 @@
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-gray-100 dark:bg-gray-800">
+    <section id="about" className="py-20 bg-secondary">
       <div className="max-w-4xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-12">Sobre mim</h2>
-        <div className="space-y-4 text-lg text-gray-700 dark:text-gray-300">
+        <h2 className="text-3xl font-bold text-center mb-12 text-primary">Sobre mim</h2>
+        <div className="space-y-4 text-lg text-secondary">
           <p>
             Sou Filipe Neres Fernandes, desenvolvedor apaixonado por criar softwares que resolvem problemas reais. 
             Minha trajetória começou com projetos pessoais e hoje desenvolvo aplicações completas, 

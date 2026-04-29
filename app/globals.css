@@ -1,15 +1,65 @@
 @import "tailwindcss";
 
-@layer base {
-  html {
-    scroll-behavior: smooth;
-  }
-  body {
-    background-color: rgb(249 250 251);
-    color: rgb(17 24 39);
-  }
-  .dark body {
-    background-color: rgb(17 24 39);
-    color: rgb(243 244 246);
-  }
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-card: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-color: #e2e8f0;
+  --accent: #4f46e5;
+  --accent-hover: #4338ca;
+  --overlay-gradient: linear-gradient(to top, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #020617;
+  --bg-card: #1e293b;
+  --text-primary: #e2e8f0;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
+  --accent: #6366f1;
+  --accent-hover: #4f46e5;
+  --overlay-gradient: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Classes utilitárias para facilitar a refatoração */
+.bg-primary { background-color: var(--bg-primary); }
+.bg-secondary { background-color: var(--bg-secondary); }
+.bg-card { background-color: var(--bg-card); }
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.border-theme { border-color: var(--border-color); }
+.accent-bg { background-color: var(--accent); }
+.accent-bg:hover { background-color: var(--accent-hover); }
+.accent-text { color: var(--accent); }
+.shadow-theme { box-shadow: var(--shadow); }
+.overlay-gradient {
+  background: var(--overlay-gradient);
+}
+
+/* Para os botões secundários */
+.btn-secondary {
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-primary);
+}
+.btn-secondary:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* Transição para todos os elementos que mudam de cor */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.3s;
 }

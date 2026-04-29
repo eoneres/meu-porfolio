@@ -115,7 +115,6 @@ export default function Projects() {
 
   const renderMediaItem = (item, idx) => {
     if (item.type === 'video') {
-      // Vídeo sem controles, autoplay mudo, recarrega com key
       return (
         <video
           key={item.src}
@@ -129,7 +128,6 @@ export default function Projects() {
         />
       );
     }
-    // Imagem com object-cover para preencher todo o container
     return (
       <Image
         src={item.src}
@@ -162,26 +160,26 @@ export default function Projects() {
 
   if (totalItems === 0) {
     return (
-      <section id="projects" className="py-20 bg-gray-100 dark:bg-gray-800">
-        <div className="text-center">Nenhuma mídia disponível.</div>
+      <section id="projects" className="py-20 bg-secondary">
+        <div className="text-center text-primary">Nenhuma mídia disponível.</div>
       </section>
     );
   }
 
   return (
-    <section id="projects" className="py-20 bg-gray-100 dark:bg-gray-800">
+    <section id="projects" className="py-20 bg-secondary">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-12">Meus Projetos</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-primary">Meus Projetos</h2>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-12 border-b border-gray-300 dark:border-gray-700 pb-2">
+        <div className="flex flex-wrap justify-center gap-2 mb-12 border-b border-theme pb-2">
           {projectsData.map((project) => (
             <button
               key={project.slug}
               onClick={() => handleProjectChange(project)}
               className={`px-6 py-2 rounded-t-lg transition-all ${
                 selectedProject.slug === project.slug
-                  ? 'bg-blue-600 text-white shadow-md'
-                  : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600'
+                  ? 'accent-bg text-white shadow-md'
+                  : 'bg-secondary text-secondary hover:bg-primary hover:text-primary'
               }`}
             >
               {project.title}
@@ -190,7 +188,7 @@ export default function Projects() {
         </div>
 
         <div className={`transition-all duration-300 ease-in-out transform ${isTransitioning ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0'}`}>
-          <div className="relative bg-black rounded-2xl shadow-xl overflow-hidden group" onMouseEnter={pauseAutoplay} onMouseLeave={resumeAutoplay}>
+          <div className="relative bg-black rounded-2xl shadow-xl overflow-hidden group">
             <div className="relative w-full h-96 md:h-[500px] overflow-hidden cursor-grab active:cursor-grabbing" onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}>
               <div ref={trackRef} className="flex h-full">
                 {clonedMedia.map((item, idx) => (
@@ -199,7 +197,8 @@ export default function Projects() {
                   </div>
                 ))}
               </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6 text-white">
+              {/* Overlay com gradiente usando variável CSS */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white overlay-gradient">
                 <h3 className="text-2xl font-bold">{selectedProject.title}</h3>
                 <p className="text-sm opacity-90">{selectedProject.shortDescription}</p>
               </div>
@@ -219,16 +218,16 @@ export default function Projects() {
             </div>
           </div>
 
-          <div className="mt-10 bg-white dark:bg-gray-900 rounded-xl p-6 shadow-md">
+          <div className="mt-10 bg-card rounded-xl p-6 shadow-theme border border-theme">
             <div className="flex flex-wrap gap-2 mb-4">
               {selectedProject.technologies.map((tech) => (
-                <span key={tech} className="bg-gray-200 dark:bg-gray-700 px-3 py-1 rounded-full text-sm">{tech}</span>
+                <span key={tech} className="bg-secondary text-secondary px-3 py-1 rounded-full text-sm">{tech}</span>
               ))}
             </div>
-            <p className="text-gray-700 dark:text-gray-300 whitespace-pre-line">{selectedProject.fullDescription}</p>
+            <p className="text-primary whitespace-pre-line">{selectedProject.fullDescription}</p>
             <div className="flex gap-4 mt-6">
-              {selectedProject.liveDemo && <a href={selectedProject.liveDemo} target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700">Demo ao vivo</a>}
-              <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="border border-gray-400 dark:border-gray-600 px-6 py-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">Código fonte</a>
+              {selectedProject.liveDemo && <a href={selectedProject.liveDemo} target="_blank" rel="noopener noreferrer" className="accent-bg text-white px-6 py-2 rounded-lg hover:accent-bg">Demo ao vivo</a>}
+              <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="btn-secondary px-6 py-2 rounded-lg">Código fonte</a>
             </div>
           </div>
         </div>

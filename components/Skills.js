@@ -7,17 +7,17 @@ const skills = {
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-20">
+    <section id="skills" className="py-20 bg-primary">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-12">Habilidades técnicas</h2>
+        <h2 className="text-3xl font-bold text-center mb-12 text-primary">Habilidades técnicas</h2>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {Object.entries(skills).map(([category, items]) => (
-            <div key={category} className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-md">
-              <h3 className="text-xl font-semibold mb-4 text-blue-600 dark:text-blue-400">{category}</h3>
+            <div key={category} className="bg-card rounded-xl p-6 shadow-theme border border-theme">
+              <h3 className="text-xl font-semibold mb-4 accent-text">{category}</h3>
               <ul className="space-y-2">
                 {items.map(item => (
-                  <li key={item} className="flex items-center gap-2">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                  <li key={item} className="flex items-center gap-2 text-secondary">
+                    <span className="w-2 h-2 accent-bg rounded-full"></span>
                     {item}
                   </li>
                 ))}
