@@ -1,5 +1,3 @@
-# meu-porfolio
-Portfólio de Filipe Neres Fernandes
 # Filipe Neres Fernandes - Portfólio de Softwares
 
 [![Vercel](https://img.shields.io/badge/Deploy-Vercel-black?style=flat&logo=vercel)](https://meu-portfolio-eoneres.vercel.app)
