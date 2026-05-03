@@ -43,5 +43,18 @@
       { "type": "video", "src": "/videos/erp/1773774335429.mp4" }
     ],
     "github": "https://github.com/eoneres/ERP"
+  },
+
+{
+    "slug": "dados-sujos",
+    "title": "DataCleaner",
+    "shortDescription": "Sistema completo para tratamento de dados sujos",
+    "fullDescription": "DataCleaner é uma ferramenta web para limpeza, validação e normalização de dados brasileiros. Desenvolvida com Next.js 16 e Tailwind CSS, oferece uma interface moderna e responsiva para tarefas comuns de tratamento de dados.",
+    "technologies": ["Next.js", "Tailwind", "Typescript"],
+    "media": [
+      { "type": "video", "src": "/videos/dados-sujos/dados.mp4" }
+    ],
+    "github": "https://github.com/eoneres/dados-sujos"
   }
+
 ]
