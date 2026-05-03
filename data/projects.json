@@ -55,6 +55,18 @@
       { "type": "video", "src": "/videos/dados-sujos/dados.mp4" }
     ],
     "github": "https://github.com/eoneres/dados-sujos"
+  },
+
+{
+    "slug": "price-monitor",
+    "title": "Monitor de Preços Amazon",
+    "shortDescription": "Sistema que monitora 24/7 preços de produtos cadastrados",
+    "fullDescription": "Sistema completo de monitoramento de preços da Amazon com suporte a múltiplos produtos, scraping real, histórico em SQLite, alertas por e-mail e agendamento automático",
+    "technologies": ["Next.js", "Recharts", "Typescript", "SQLite"],
+    "media": [
+      { "type": "image", "src": "/images/price-monitor/dados.png" }
+    ],
+    "github": "https://github.com/eoneres/dados-sujos"
   }
 
 ]
