@@ -1,28 +1,36 @@
-const skills = {
-  "Front-end": ["React", "Next.js", "Tailwind CSS", "JavaScript", "HTML/CSS"],
-  "Back-end": ["Node.js", "Express", "Python (FastAPI)", "REST APIs"],
-  "Banco de dados": ["PostgreSQL", "MongoDB", "Prisma ORM", "Redis"],
-  "Ferramentas": ["Git/GitHub", "Docker", "Vercel", "VS Code"],
-};
+'use client';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { Code, Server, Database, Wrench } from 'lucide-react';
+
+const skillCategories = [
+  { title: 'Front-end', icon: Code, items: ['React', 'Next.js', 'Tailwind CSS', 'TypeScript'] },
+  { title: 'Back-end', icon: Server, items: ['Node.js', 'Express', 'Python', 'FastAPI'] },
+  { title: 'Banco de Dados', icon: Database, items: ['PostgreSQL', 'MongoDB', 'Redis', 'Prisma'] },
+  { title: 'Ferramentas', icon: Wrench, items: ['Docker', 'Git', 'Vercel', 'VS Code'] },
+];
 
 export default function Skills() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
+
   return (
-    <section id="skills" className="py-20 bg-primary">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-12 text-primary">Habilidades técnicas</h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {Object.entries(skills).map(([category, items]) => (
-            <div key={category} className="bg-card rounded-xl p-6 shadow-theme border border-theme">
-              <h3 className="text-xl font-semibold mb-4 accent-text">{category}</h3>
-              <ul className="space-y-2">
-                {items.map(item => (
-                  <li key={item} className="flex items-center gap-2 text-secondary">
-                    <span className="w-2 h-2 accent-bg rounded-full"></span>
-                    {item}
-                  </li>
+    <section id="skills" className="py-24 bg-secondary">
+      <div className="max-w-7xl mx-auto px-6">
+        <h2 className="text-4xl font-bold text-center mb-16 text-primary">Habilidades Técnicas</h2>
+        <div ref={ref} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {skillCategories.map((cat, idx) => (
+            <motion.div key={cat.title} className="glass-card rounded-xl p-6" initial={{ opacity: 0, y: 30 }} animate={isInView ? { opacity: 1, y: 0 } : {}} transition={{ delay: idx * 0.1 }}>
+              <div className="flex items-center gap-2 mb-4">
+                <cat.icon className="text-accent" size={24} />
+                <h3 className="text-xl font-semibold text-primary">{cat.title}</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {cat.items.map(item => (
+                  <span key={item} className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-secondary text-sm">{item}</span>
                 ))}
-              </ul>
-            </div>
+              </div>
+            </motion.div>
           ))}
         </div>
       </div>

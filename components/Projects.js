@@ -1,6 +1,8 @@
 'use client';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Github, ExternalLink } from 'lucide-react';
 import projectsData from '../data/projects.json';
 
 export default function Projects() {
@@ -167,19 +169,20 @@ export default function Projects() {
   }
 
   return (
-    <section id="projects" className="py-20 bg-secondary">
+    <section id="projects" className="py-24 bg-secondary">
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="text-3xl font-bold text-center mb-12 text-primary">Meus Projetos</h2>
+        <h2 className="text-4xl font-bold text-center mb-16 text-primary">Projetos em Destaque</h2>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-12 border-b border-theme pb-2">
+        {/* Abas com glassmorphism */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
           {projectsData.map((project) => (
             <button
               key={project.slug}
               onClick={() => handleProjectChange(project)}
-              className={`px-6 py-2 rounded-t-lg transition-all ${
+              className={`px-6 py-2 rounded-full transition-all duration-300 ${
                 selectedProject.slug === project.slug
-                  ? 'accent-bg text-white shadow-md'
-                  : 'bg-secondary text-secondary hover:bg-primary hover:text-primary'
+                  ? 'bg-accent text-white shadow-lg shadow-accent/30'
+                  : 'glass-card text-secondary hover:bg-accent/20 hover:text-primary'
               }`}
             >
               {project.title}
@@ -187,8 +190,10 @@ export default function Projects() {
           ))}
         </div>
 
+        {/* Conteúdo com transição */}
         <div className={`transition-all duration-300 ease-in-out transform ${isTransitioning ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0'}`}>
-          <div className="relative bg-black rounded-2xl shadow-xl overflow-hidden group">
+          {/* Carrossel (mesmo visual melhorado) */}
+          <div className="relative bg-black/40 rounded-2xl shadow-2xl overflow-hidden group backdrop-blur-sm">
             <div className="relative w-full h-96 md:h-[500px] overflow-hidden cursor-grab active:cursor-grabbing" onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}>
               <div ref={trackRef} className="flex h-full">
                 {clonedMedia.map((item, idx) => (
@@ -197,8 +202,8 @@ export default function Projects() {
                   </div>
                 ))}
               </div>
-              {/* Overlay com gradiente usando variável CSS */}
-              <div className="absolute bottom-0 left-0 right-0 p-6 text-white overlay-gradient">
+              {/* Overlay com gradiente dinâmico */}
+              <div className="absolute bottom-0 left-0 right-0 p-6 text-white bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                 <h3 className="text-2xl font-bold">{selectedProject.title}</h3>
                 <p className="text-sm opacity-90">{selectedProject.shortDescription}</p>
               </div>
@@ -218,16 +223,25 @@ export default function Projects() {
             </div>
           </div>
 
-          <div className="mt-10 bg-card rounded-xl p-6 shadow-theme border border-theme">
-            <div className="flex flex-wrap gap-2 mb-4">
+          {/* Detalhes do projeto com glassmorphism e ícones */}
+          <div className="mt-10 glass-card rounded-2xl p-8 shadow-xl border border-white/10 dark:border-white/5">
+            <div className="flex flex-wrap gap-2 mb-6">
               {selectedProject.technologies.map((tech) => (
-                <span key={tech} className="bg-secondary text-secondary px-3 py-1 rounded-full text-sm">{tech}</span>
+                <span key={tech} className="px-3 py-1 rounded-full bg-accent/10 text-accent text-sm font-medium">
+                  {tech}
+                </span>
               ))}
             </div>
-            <p className="text-primary whitespace-pre-line">{selectedProject.fullDescription}</p>
-            <div className="flex gap-4 mt-6">
-              {selectedProject.liveDemo && <a href={selectedProject.liveDemo} target="_blank" rel="noopener noreferrer" className="accent-bg text-white px-6 py-2 rounded-lg hover:accent-bg">Demo ao vivo</a>}
-              <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="btn-secondary px-6 py-2 rounded-lg">Código fonte</a>
+            <p className="text-primary leading-relaxed whitespace-pre-line">{selectedProject.fullDescription}</p>
+            <div className="flex flex-wrap gap-4 mt-8">
+              {selectedProject.liveDemo && (
+                <a href={selectedProject.liveDemo} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
+                  <ExternalLink size={16} /> Live Demo
+                </a>
+              )}
+              <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="btn-secondary inline-flex items-center gap-2">
+                <Github size={16} /> GitHub
+              </a>
             </div>
           </div>
         </div>
