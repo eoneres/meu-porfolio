@@ -1,4 +1,4 @@
-import { GitHub, Linkedin, Mail, FileText } from 'lucide-react';
+import { Github, Linkedin, Mail, FileText } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -8,7 +8,7 @@ export default function Footer() {
           © {new Date().getFullYear()} Filipe Neres Fernandes
         </div>
         <div className="flex gap-6">
-          <a href="https://github.com/eoneres" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent transition"><GitHub size={20} /></a>
+          <a href="https://github.com/eoneres" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent transition"><Github size={20} /></a>
           <a href="https://linkedin.com/in/filipe-neres-fernandes" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent transition"><Linkedin size={20} /></a>
           <a href="mailto:filipeneresfernandes@gmail.com" className="text-secondary hover:text-accent transition"><Mail size={20} /></a>
           <a href="#" className="text-secondary hover:text-accent transition"><FileText size={20} /></a>

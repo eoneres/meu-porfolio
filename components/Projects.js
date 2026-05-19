@@ -1,8 +1,7 @@
 'use client';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
-import { GitHub, ExternalLink } from 'lucide-react';
+import { Github, ExternalLink } from 'lucide-react';
 import projectsData from '../data/projects.json';
 
 export default function Projects() {
@@ -235,7 +234,7 @@ export default function Projects() {
                 </a>
               )}
               <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="btn-secondary inline-flex items-center gap-2">
-                <GitHub size={16} /> GitHub
+                <Github size={16} /> GitHub
               </a>
             </div>
           </div>
