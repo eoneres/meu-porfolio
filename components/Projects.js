@@ -2,7 +2,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, ExternalLink } from 'lucide-react';
+import { GitHub, ExternalLink } from 'lucide-react';
 import projectsData from '../data/projects.json';
 
 export default function Projects() {
@@ -173,7 +173,6 @@ export default function Projects() {
       <div className="max-w-7xl mx-auto px-6">
         <h2 className="text-4xl font-bold text-center mb-16 text-primary">Projetos em Destaque</h2>
 
-        {/* Abas com glassmorphism */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
           {projectsData.map((project) => (
             <button
@@ -190,9 +189,7 @@ export default function Projects() {
           ))}
         </div>
 
-        {/* Conteúdo com transição */}
         <div className={`transition-all duration-300 ease-in-out transform ${isTransitioning ? 'opacity-0 -translate-y-4' : 'opacity-100 translate-y-0'}`}>
-          {/* Carrossel (mesmo visual melhorado) */}
           <div className="relative bg-black/40 rounded-2xl shadow-2xl overflow-hidden group backdrop-blur-sm">
             <div className="relative w-full h-96 md:h-[500px] overflow-hidden cursor-grab active:cursor-grabbing" onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}>
               <div ref={trackRef} className="flex h-full">
@@ -202,7 +199,6 @@ export default function Projects() {
                   </div>
                 ))}
               </div>
-              {/* Overlay com gradiente dinâmico */}
               <div className="absolute bottom-0 left-0 right-0 p-6 text-white bg-gradient-to-t from-black/80 via-black/40 to-transparent">
                 <h3 className="text-2xl font-bold">{selectedProject.title}</h3>
                 <p className="text-sm opacity-90">{selectedProject.shortDescription}</p>
@@ -223,7 +219,6 @@ export default function Projects() {
             </div>
           </div>
 
-          {/* Detalhes do projeto com glassmorphism e ícones */}
           <div className="mt-10 glass-card rounded-2xl p-8 shadow-xl border border-white/10 dark:border-white/5">
             <div className="flex flex-wrap gap-2 mb-6">
               {selectedProject.technologies.map((tech) => (
@@ -240,7 +235,7 @@ export default function Projects() {
                 </a>
               )}
               <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="btn-secondary inline-flex items-center gap-2">
-                <Github size={16} /> GitHub
+                <GitHub size={16} /> GitHub
               </a>
             </div>
           </div>
