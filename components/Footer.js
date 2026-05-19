@@ -7,7 +7,7 @@ export default function Footer() {
         </div>
         <div className="flex gap-6">
           <a href="https://github.com/eoneres" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent transition">🐙 GitHub</a>
-          <a href="https://linkedin.com/in/filipe-neres-fernandes" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent transition">🔗 LinkedIn</a>
+          <a href="https://www.linkedin.com/in/filipe-neres-fernandes-9878b018b/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent transition">🔗 LinkedIn</a>
           <a href="mailto:filipeneresfernandes@gmail.com" className="text-secondary hover:text-accent transition">📧 Email</a>
           <a href="#" className="text-secondary hover:text-accent transition">📄 Resume</a>
         </div>
