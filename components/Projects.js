@@ -1,7 +1,6 @@
 'use client';
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Image from 'next/image';
-import { Github, ExternalLink } from 'lucide-react';
 import projectsData from '../data/projects.json';
 
 export default function Projects() {
@@ -230,41 +229,16 @@ export default function Projects() {
             <div className="flex flex-wrap gap-4 mt-8">
               {selectedProject.liveDemo && (
                 <a href={selectedProject.liveDemo} target="_blank" rel="noopener noreferrer" className="btn-primary inline-flex items-center gap-2">
-                  <ExternalLink size={16} /> Live Demo
+                  🔗 Live Demo
                 </a>
               )}
               <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="btn-secondary inline-flex items-center gap-2">
-                <Github size={16} /> GitHub
+                🐙 GitHub
               </a>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-}
-EOF
-bash
-cat > components/Footer.js << 'EOF'
-import { Github, Linkedin, Mail, FileText } from 'lucide-react';
-
-export default function Footer() {
-  return (
-    <footer className="bg-card border-t border-theme py-12">
-      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
-        <div className="text-secondary text-sm">
-          © {new Date().getFullYear()} Filipe Neres Fernandes
-        </div>
-        <div className="flex gap-6">
-          <a href="https://github.com/eoneres" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent transition"><Github size={20} /></a>
-          <a href="https://linkedin.com/in/filipe-neres-fernandes" target="_blank" rel="noopener noreferrer" className="text-secondary hover:text-accent transition"><Linkedin size={20} /></a>
-          <a href="mailto:filipeneresfernandes@gmail.com" className="text-secondary hover:text-accent transition"><Mail size={20} /></a>
-          <a href="#" className="text-secondary hover:text-accent transition"><FileText size={20} /></a>
-        </div>
-        <div className="text-secondary text-sm">
-          Built with Next.js + Tailwind + Vercel
-        </div>
-      </div>
-    </footer>
   );
 }
